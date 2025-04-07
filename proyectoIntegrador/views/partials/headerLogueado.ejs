@@ -55,6 +55,17 @@
 							Nombre del usuario <i class="fas fa-user"></i>
 						</a>
 					</li>
+
+					<section class="perfil">
+						<div class="perfil-info">
+						  <img src="<%= data.usuario.fotoPerfil %>" alt="Foto de perfil" />
+						  <h2><%= data.usuario.usuario %></h2>
+						  <p>Email: <%= data.usuario.email %></p>
+						</div>
+					  
+						<div class="mis-productos">
+						  <h3>Mis productos</h3>
+					  
 					<li>
 						<form action="" method="post">
 							<button class="logout" type="submit">
