@@ -1,6 +1,8 @@
+const data = require("../db/datos")
+
 const detalleProductoController = {
     detalle : function (req,res) {
-    res.render("detalleProducto")
+    res.render("product", {data})
     
 }};
 

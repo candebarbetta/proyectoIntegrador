@@ -9,7 +9,7 @@ const data= {
       },
       productos: [
         {
-          imagen: "/images/products/img-cafetera-moulinex,jpg",
+          imagen: "/images/products/img-cafetera-moulinex.jpg",
           nombre: "Cafetera",
           descripcion: "Cafetera de oficina",
           comentarios: [
@@ -91,7 +91,7 @@ const data= {
         },
         {
           imagen: "/images/products/reloj.jpeg",
-          nombre: "Reoj rolex",
+          nombre: "Reloj rolex",
           descripcion: "Muy buena hora",
           comentarios: [            {
             nombreUsuario: "bernixd",
