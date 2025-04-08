@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<header>
+    %- include('./partials/header') %>
+</header>
+
+<body>
+    <h1><%= data.productos[0].nombre %></h1>
+
+  <div class="producto-info">
+    <img src="<%= data.productos[0].imagen %>" alt="<%= data.productos[0].nombre %>" class="imagen-producto">
+    <p><%= data.productos[0].descripcion %></p>
+  </div>
+
+  <section class="comentarios">
+    <h2>Comentarios</h2>
+    <% for (let i = 0; i < data.productos[0].comentarios.length; i++) { %>
+      <div class="comentario">
+        <img src="<%= data.productos[0].comentarios[i].imagenPerfil %>" alt="perfil" class="perfil-img">
+        <div>
+          <strong><%= data.productos[0].comentarios[i].nombreUsuario %></strong>
+          <p><%= data.productos[0].comentarios[i].texto %></p>
+        </div>
+      </div>
+    <% } %>
+  </section>
+</body>
+
+<footer>
+    <%- include('./partials/footer') %>
+</footer>
+</html>
