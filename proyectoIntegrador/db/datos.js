@@ -9,64 +9,64 @@ const data= {
       },
       productos: [
         {
-          imagen: "/images/products/img-cafetera-moulinex.jpg",
-          nombre: "Cafetera",
-          descripcion: "Cafetera de oficina",
+          imagen: "/images/products/gato_bengala.jpg",
+          nombre: "Gato bengala",
+          descripcion: "Tiene manchas",
           comentarios: [
             {
               nombreUsuario: "bernixd",
-              texto: "Que rico cafe!",
+              texto: "Que lindo gato!",
               imagenPerfil: "/images/user/default-image.png"
             },
             {
               nombreUsuario: "candelol",
-              texto: "La uso todos los días, 10/10!!",
+              texto: "Quiero uno!!",
               imagenPerfil: "/images/user/default-image.png"
             }
           ]
         },
         {
-          imagen: "/images/products/img-mackbook-pro-2019.jpg",
-          nombre: "Computadora Mackbook",
-          descripcion: "Ideal para estudiantes y home office",
+          imagen: "/images/products/gato-montes.jpeg",
+          nombre: "Gato montes",
+          descripcion: "salvaje",
           comentarios: [
             {
                 nombreUsuario: "bernixd",
-                texto: "Que buena compu!",
+                texto: "Que lindo gato!!",
                 imagenPerfil: "/images/user/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
-                texto: "La uso todos los días, 10/10!!",
+                texto: "Quiero uno!!",
                 imagenPerfil: "/images/user/default-image.png"
               }
           ]
         },
         {
-          imagen: "/images/products/img-samsung-galaxy-s10.jpg",
-          nombre: "Samsung galaxy s10",
-          descripcion: "Buena calidad de sonido y duración de batería.",
+          imagen: "/images/products/gatoblanco.webp",
+          nombre: "Gato blanco",
+          descripcion: "Es albino",
           comentarios: [
             {
               nombreUsuario: "maria123",
-              texto: "Funciona perfecto",
+              texto: "Que lindo gato!",
               imagenPerfil: "/images/user/default-image.png"
             }
           ]
         },
         {
-          imagen: "/images/products/img-tv-samsung-smart.jpg",
-          nombre: "Television samsung",
-          descripcion: "Television de muy buena calidad",
+          imagen: "/images/products/gatocalico.jpg",
+          nombre: "Gato calico",
+          descripcion: "Son todas mujeres",
           comentarios: [
             {
                 nombreUsuario: "bernixd",
-                texto: "Que buena tele!",
+                texto: "Que lindo gato!",
                 imagenPerfil: "/images/user/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
-                texto: "La uso todos los días, 10/10!!",
+                texto: "Quiero uno!!",
                 imagenPerfil: "/images/user/default-image.png"
               }
           ]
@@ -74,7 +74,7 @@ const data= {
         {
     
           imagen: "/images/products/gatos.png",
-          nombre: "Gato marron",
+          nombre: "Gato normal",
           descripcion: "Muy amigable",
           comentarios: [
             {
@@ -90,84 +90,84 @@ const data= {
           ]
         },
         {
-          imagen: "/images/products/reloj.jpeg",
-          nombre: "Reloj rolex",
-          descripcion: "Muy buena hora",
+          imagen: "/images/products/gatomarron.webp",
+          nombre: "Gato marron",
+          descripcion: "Muy raro",
           comentarios: [            {
             nombreUsuario: "bernixd",
-            texto: "Que buen reloj!",
+            texto: "Que lindo gato!",
             imagenPerfil: "/images/user/default-image.png"
           },
           {
             nombreUsuario: "candelol",
-            texto: "Lo uso todos los días, 10/10!!",
+            texto: "Quiero uno!!",
             imagenPerfil: "/images/user/default-image.png"
           }]
         },
         {
-          imagen: "/images/products/zapaptillas.webp",
-          nombre: "Zapatillas samba verdes",
-          descripcion: "De buena calidad",
+          imagen: "/images/products/gatopersa.jpg",
+          nombre: "Gato persa",
+          descripcion: "Tiene cara plana",
           comentarios: [
             {
                 nombreUsuario: "bernixd",
-                texto: "Que buenas zapas!",
+                texto: "Que lindo gato!",
                 imagenPerfil: "/images/user/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
-                texto: "Las uso todos los días, 10/10!!",
+                texto: "Quiero uno!!",
                 imagenPerfil: "/images/user/default-image.png"
               }
           ]
         },
         {
-          imagen: "/images/products/silla.webp",
-          nombre: "Silla de madera",
-          descripcion: "Perfecta para el comedor",
+          imagen: "/images/products/gatosiames.webp",
+          nombre: "Gato siames",
+          descripcion: "Tiene ojos celestes",
           comentarios: [
             {
                 nombreUsuario: "bernixd",
-                texto: "Que buena silla!",
+                texto: "Que lindo gato!",
                 imagenPerfil: "/images/user/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
-                texto: "La uso todos los días, 10/10!!",
+                texto: "Quiero uno!!",
                 imagenPerfil: "/images/user/default-image.png"
               }
           ]
         },
         {
-          imagen: "/images/products/images.jpeg",
-          nombre: "Cartera Prune",
-          descripcion: "Incluye 36 colores brillantes.",
+          imagen: "/images/products/gatotuxedo.webp",
+          nombre: "Gato tuxedo",
+          descripcion: "Tiene un traje",
           comentarios: [
             {
                 nombreUsuario: "bernixd",
-                texto: "Que buena cartera!",
+                texto: "Que lindo gato!",
                 imagenPerfil: "/images/user/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
-                texto: "La uso todos los días, 10/10!!",
+                texto: "Quiero uno!!",
                 imagenPerfil: "/images/user/default-image.png"
               }
           ]
         },
         {
-          imagen: "/images/products/sweater.jpeg",
-          nombre: "sweater de zara",
-          descripcion: "Ideal para viajes y días largos.",
+          imagen: "/images/products/post_gato_esfinge.webp",
+          nombre: "Gato esfinge",
+          descripcion: "Pelado.",
           comentarios: [
             {
                 nombreUsuario: "bernixd",
-                texto: "Que buen sweater!",
+                texto: "Que lindo gato!",
                 imagenPerfil: "/images/user/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
-                texto: "Lo uso todos los días, 10/10!!",
+                texto: "Quiero uno!!",
                 imagenPerfil: "/images/user/default-image.png"
               }
           ]
