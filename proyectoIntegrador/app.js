@@ -10,6 +10,7 @@ const registroRouter = require('./routes/registro');
 const loginRouter = require('./routes/login');
 const productRouter = require("./routes/product-add");
 const productDetalleRouter = require('./routes/product');
+const profileRouter = require("./routes/profile");
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/registro', registroRouter);
 app.use('/login', loginRouter);
 app.use("/productAdd", productRouter);
 app.use('/detalle', productDetalleRouter);
+app.use("/profile", profileRouter);
 
 
 

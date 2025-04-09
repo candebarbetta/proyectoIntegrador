@@ -495,7 +495,10 @@ textarea.form-input {
   color: #fff;
 }
 
-
+.fotoPerfilHL {
+  width: 20px;
+  height: 20px;
+}
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
   .main-header_credit-link {
