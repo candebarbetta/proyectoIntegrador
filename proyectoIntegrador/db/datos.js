@@ -5,7 +5,7 @@ const data= {
         contrasena: "candelaria02",
         fechaNacimiento: "03-03-2006",
         documento: 46751724,
-        fotoPerfil: "/images/user/default-image.png"
+        fotoPerfil: "/images/users/default-image.png"
       },
       productos: [
         {
@@ -16,12 +16,12 @@ const data= {
             {
               nombreUsuario: "bernixd",
               texto: "Que lindo gato!",
-              imagenPerfil: "/images/user/default-image.png"
+              imagenPerfil: "/images/users/default-image.png"
             },
             {
               nombreUsuario: "candelol",
               texto: "Quiero uno!!",
-              imagenPerfil: "/images/user/default-image.png"
+              imagenPerfil: "/images/users/default-image.png"
             }
           ]
         },
@@ -33,12 +33,12 @@ const data= {
             {
                 nombreUsuario: "bernixd",
                 texto: "Que lindo gato!!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
                 texto: "Quiero uno!!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               }
           ]
         },
@@ -50,7 +50,7 @@ const data= {
             {
               nombreUsuario: "maria123",
               texto: "Que lindo gato!",
-              imagenPerfil: "/images/user/default-image.png"
+              imagenPerfil: "/images/users/default-image.png"
             }
           ]
         },
@@ -62,12 +62,12 @@ const data= {
             {
                 nombreUsuario: "bernixd",
                 texto: "Que lindo gato!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
                 texto: "Quiero uno!!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               }
           ]
         },
@@ -80,12 +80,12 @@ const data= {
             {
                 nombreUsuario: "bernixd",
                 texto: "Que buen gato!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
                 texto: "Lo amo",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               }
           ]
         },
@@ -96,12 +96,12 @@ const data= {
           comentarios: [            {
             nombreUsuario: "bernixd",
             texto: "Que lindo gato!",
-            imagenPerfil: "/images/user/default-image.png"
+            imagenPerfil: "/images/users/default-image.png"
           },
           {
             nombreUsuario: "candelol",
             texto: "Quiero uno!!",
-            imagenPerfil: "/images/user/default-image.png"
+            imagenPerfil: "/images/users/default-image.png"
           }]
         },
         {
@@ -112,12 +112,12 @@ const data= {
             {
                 nombreUsuario: "bernixd",
                 texto: "Que lindo gato!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
                 texto: "Quiero uno!!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               }
           ]
         },
@@ -129,12 +129,12 @@ const data= {
             {
                 nombreUsuario: "bernixd",
                 texto: "Que lindo gato!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
                 texto: "Quiero uno!!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               }
           ]
         },
@@ -146,12 +146,12 @@ const data= {
             {
                 nombreUsuario: "bernixd",
                 texto: "Que lindo gato!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
                 texto: "Quiero uno!!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               }
           ]
         },
@@ -163,12 +163,12 @@ const data= {
             {
                 nombreUsuario: "bernixd",
                 texto: "Que lindo gato!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               },
               {
                 nombreUsuario: "candelol",
                 texto: "Quiero uno!!",
-                imagenPerfil: "/images/user/default-image.png"
+                imagenPerfil: "/images/users/default-image.png"
               }
           ]
         }
