@@ -5,7 +5,7 @@ const data= {
         contrasena: "candelaria02",
         fechaNacimiento: "03-03-2006",
         documento: 46751724,
-        fotoPerfil: "/images/users/default-image.png"
+        fotoPerfil: "/images/users/fotoPerfil.png"
       },
       productos: [
         {

@@ -11,6 +11,7 @@ const loginRouter = require('./routes/login');
 const productRouter = require("./routes/product-add");
 const productDetalleRouter = require('./routes/product');
 const profileRouter = require("./routes/profile");
+const searchRouter = require('./routes/search-results')
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use('/login', loginRouter);
 app.use("/productAdd", productRouter);
 app.use('/detalle', productDetalleRouter);
 app.use("/profile", profileRouter);
+app.use('/search', searchRouter);
 
 
 

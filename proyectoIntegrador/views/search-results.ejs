@@ -15,10 +15,43 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
-			</h2>
+
+			<div class="container products-wrapper">
+				<div class="d-flex align-items-center">
+					<h2 class="products-title"><%= data.productos[0].nombre %></h2> 
+					<p class="product-detail-description">
+						<a href="/productAdd">Editar</a>
+					</p>
+				</div>
+				<div class="product-detail">
+					<div class="row">
+						<article class="col-12 col-lg-8 product-detail-info">
+							<img src="<%= data.productos[0].imagen %>" alt="Producto" class="product-detail-img">
+							<p class="product-detail-description">
+								<%= data.productos[0].descripcion %></p>
+						</article>
+						<div class="col-12 col-lg-4">
+							<section class="comments">
+								<% for (let i = 0; i < data.productos[0].comentarios.length; i++) { %>
+									<div class="comentario">
+									  <img src="<%= data.productos[0].comentarios[i].imagenPerfil %>" alt="perfil" class="perfil-img">
+									  <div>
+										<strong><%= data.productos[0].comentarios[i].nombreUsuario %></strong>
+										<p><%= data.productos[0].comentarios[i].texto %></p>
+									  </div>
+									</div>
+								  <% } %>
+		
+							</section>
+							<form class="form" action="" method="POST">
+								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+							</form>
+							<hr>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 	<!-- footer -->
