@@ -12,7 +12,7 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= data.productos[0].nombre %></h2> 
 			<p class="product-detail-description">
-				<a href="/productAdd/productAdd">Editar</a>
+				<a href="/product/productAdd">Editar</a>
 			</p>
 		</div>
 		<div class="product-detail">
@@ -35,7 +35,7 @@
 						  <% } %>
 
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" action="/product/detalle" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>

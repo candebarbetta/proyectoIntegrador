@@ -18,65 +18,27 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Productos</h2>
+				
 			</div>
 			<!-- Show the "ultimos" products -->
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/detalle/detalle">
-						<figure class="product-box_image">
-							<img src="<%= data.productos[0].imagen %>" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2><%= data.productos[0].nombre %></h2>
-							<p><%= data.productos[0].descripcion %></p>
-							<p>Comentarios: 2</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/detalle/detalle">
-						<figure class="product-box_image">
-							<img src="<%= data.productos[1].imagen %>" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2><%= data.productos[1].nombre %></h2>
-							<p><%= data.productos[1].descripcion %></p>
-							<p>Comentarios: 1</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/detalle/detalle">
-						<figure class="product-box_image">
-							<img src="<%= data.productos[2].imagen %>" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2><%= data.productos[2].nombre %></h2>
-							<p><%= data.productos[2].descripcion %></p>
-							<p>Comentarios: 2</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/detalle/detalle">
-						<figure class="product-box_image">
-							<img src="<%= data.productos[3].imagen %>" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2><%= data.productos[3].nombre %></h2>
-							<p><%= data.productos[0].descripcion %></p>
-							<p>Comentarios: 2</p>
-						</article>
-					</a>
-				</section>
-			</div>
-		</div>
+			<%  for (let i=0; i<data.productos.length; i++) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/product/detalle">
+							<figure class="product-box_image">
+								<img src="<%= data.productos[i].imagen %>" alt="cafetera moulinex">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= data.productos[i].nombre %></h2>
+								<p><%= data.productos[i].descripcion %></p>
+								<p>Comentarios: 2</p>
+							</article>
+						</a>
+					</section>
+				</div>
+			
+			<% } %>
+			
 	</div>
 
 
