@@ -1,9 +1,17 @@
-const data = require("../db/datos")
+const data = require("../db/datos");
 
-const detalleProductoController = {
-    detalle : function (req,res) {
-    res.render("product", {data})
-    
-}};
+const productoController = {
+    agregar: function (req, res) {
+        res.render("product-add", { data });
+    },
 
-module.exports = detalleProductoController;
+    detalle: function (req, res) {
+        res.render("product", { data });
+    },
+
+    buscar: function (req, res) {
+        res.render("product", { data });
+    }
+};
+
+module.exports = productoController;

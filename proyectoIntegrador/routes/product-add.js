@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const productaddController = require("../controllers/product-addController");
+const productController = require("../controllers/productController");
 
-router.get("/productAdd", productaddController.productadd);
+router.get("/productAdd", productController.agregar);
 
 module.exports =router ;
 
