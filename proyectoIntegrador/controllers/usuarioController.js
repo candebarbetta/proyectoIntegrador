@@ -92,22 +92,21 @@ const usuarioController = {
             .then(function (user) {
                 if (user != null) {
                     let passwordCorrecta = bcrypt.compareSync(req.body.password, user.contrasena);
-
+    
                     if (passwordCorrecta == true) {
                         req.session.userLogged = user;
-
+    
                         if (req.body.recordame != undefined) {
                             res.cookie('userEmail', user.email, { maxAge: 1000 * 60 * 60 * 24 * 30 });
                         }
-
-                        
+    
+                        return res.redirect('/'); 
                     } else {
                         return res.render("login", { error: "Contraseña incorrecta" });
                     }
                 } else {
                     return res.render("login", { error: "El email no está registrado" });
                 }
-                return res.redirect('/');
             })
             .catch(function (error) {
                 return res.send("Ocurrió un error al intentar loguear.");
@@ -115,10 +114,26 @@ const usuarioController = {
     },
 
     profile: function (req, res) {
-        if (req.session.userLogged == undefined) {
+        console.log("SESION ACTUAL:", req.session.userLogged);
+        if (!req.session.userLogged) {
             return res.redirect('/usuario/login');
         }
-        res.render("profile", { user: req.session.userLogged });
+    
+        db.Producto.findAll({
+            where: { usuario_id: req.session.userLogged.id }
+        })
+        .then(function (productos) {
+            res.render("profile", {
+                data: {
+                    usuario: req.session.userLogged,
+                    productos: productos
+                }
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+            res.send("Ocurrió un error al cargar el perfil");
+        });
     },
 
     logout: function(req,res){

@@ -21,26 +21,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: "Nuestro mensaje secreto",
+  resave: false,
+  saveUninitialized: true
+}));
+
 app.use(async function(req, res, next) {
   if (req.cookies.userEmail && !req.session.userLogged) {
-    let user = await db.User.findOne({ where: { email: req.cookies.userEmail } });
+    let user = await db.Usuario.findOne({ where: { email: req.cookies.userEmail } }); // asegúrate que sea Usuario
     if (user) {
       req.session.userLogged = user;
     }
   }
   next();
 });
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: "Nuestro mensaje secreto",
-                  resave: false,
-                  saveUninitialized: true
-}));
 
 
 app.use(function(req, res, next) {
-	res.locals.userLogged = {
-		nombreDeUsuario: req.session.userLogged
-	}
+	res.locals.userLogged = req.session.userLogged;
+	
 	return next();
 });
 
