@@ -47,7 +47,7 @@ const usuarioController = {
                     return res.render("register", { error: "Este email ya está registrado." });
                 }
 
-                var documento = 0;
+                let documento = 0;
                 if (req.body.documento != "") {
                     documento = req.body.documento;
                 }
@@ -63,13 +63,13 @@ const usuarioController = {
                     contrasena: bcrypt.hashSync(req.body.password, 10),
                     fechaNacimiento: req.body.fechaNacimiento,
                     documento: documento,
-                    fotoPerfil: "default-image.png",
+                    fotoPerfil: " ",
                     createdAt: new Date(),
                     updatedAt: new Date()
                 })
                 .then(function (nuevoUsuario) {
                     req.session.userLogged = nuevoUsuario;
-                    return res.redirect("/users/profile");
+                    return res.redirect("/usuario/profile");
                 })
                 .catch(function (error) {
                     return res.send("Ocurrió un error al crear el usuario.");
@@ -91,7 +91,7 @@ const usuarioController = {
         db.Usuario.findOne({ where: { email: req.body.email } })
             .then(function (user) {
                 if (user != null) {
-                    var passwordCorrecta = bcrypt.compareSync(req.body.password, user.contrasena);
+                    let passwordCorrecta = bcrypt.compareSync(req.body.password, user.contrasena);
 
                     if (passwordCorrecta == true) {
                         req.session.userLogged = user;
@@ -100,13 +100,14 @@ const usuarioController = {
                             res.cookie('userEmail', user.email, { maxAge: 1000 * 60 * 60 * 24 * 30 });
                         }
 
-                        return res.redirect('/');
+                        
                     } else {
                         return res.render("login", { error: "Contraseña incorrecta" });
                     }
                 } else {
                     return res.render("login", { error: "El email no está registrado" });
                 }
+                return res.redirect('/');
             })
             .catch(function (error) {
                 return res.send("Ocurrió un error al intentar loguear.");
@@ -115,10 +116,19 @@ const usuarioController = {
 
     profile: function (req, res) {
         if (req.session.userLogged == undefined) {
-            return res.redirect('/users/login');
+            return res.redirect('/usuario/login');
         }
         res.render("profile", { user: req.session.userLogged });
+    },
+
+    logout: function(req,res){
+        res.clearCookie('userEmail');
+        req.session.destroy(function () {
+            return res.redirect('/');
+    });
     }
 };
+
+
 
 module.exports = usuarioController;
