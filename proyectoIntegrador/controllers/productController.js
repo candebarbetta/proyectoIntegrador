@@ -1,4 +1,4 @@
-const data = require("../db/datos");
+const data = require("../database/models");
 
 const productoController = {
     agregar: function (req, res) {
