@@ -110,25 +110,26 @@ const usuarioController = {
     },
 
     profile: function (req, res) {
-        if (req.session.userLogged == undefined) {
-            return res.redirect('/usuario/login');
-        }
+         if (req.session.userLogged == undefined) {
+    return res.redirect('/usuario/login');
+  }
 
-        db.Producto.findAll({
-            where: { usuario_id: req.session.userLogged.id }
-        })
-        .then(function (productos) {
-            res.render("profile", {
-                data: {
-                    usuario: req.session.userLogged,
-                    productos: productos
-                }
-            });
-        })
-        .catch(function (error) {
-            console.log(error);
-            res.send("Ocurrió un error al cargar el perfil");
-        });
+  db.Producto.findAll({
+    where: { usuario_id: req.session.userLogged.id }
+  })
+  .then(function (productos) {
+    res.render("profile", {
+      data: {
+        usuario: req.session.userLogged,
+        productos: productos
+      }
+    });
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.send("Ocurrió un error al cargar el perfil");
+  });
+
     },
 
     logout: function(req, res) {

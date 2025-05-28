@@ -7,16 +7,33 @@ const productoController = {
   },
 
   detalle: function (req, res) {
-    res.render("product");
+    let id = req.params.id;
+
+    data.Producto.findByPk(id, {
+      include: [
+        { association: 'usuario' },
+        { association: 'comentarios' }
+      ]
+    })
+    .then(function(producto) {
+      if (!producto) {
+        return res.send('Producto no encontrado');
+      }
+      res.render("product", { data: { productos: [producto] } });
+    })
+    .catch(function(error) {
+      console.error(error);
+      res.send('Error al cargar el producto');
+    });
   },
 
   buscar: function (req, res) {
-    let query = req.query.q;
+    let query = req.query.search;
     if (query == null) {
       query = "";
     }
 
-    db.Producto.findAll({
+    data.Producto.findAll({
       where: {
         nombre: {
           [Op.like]: '%' + query + '%'
@@ -33,15 +50,16 @@ const productoController = {
       }
 
       res.render('search-results', {
-        productos: productos,
-        query: query,
+        data: {
+          productos: productos,
+          query: query
+        },
         mensaje: mensaje
       });
     })
     .catch(function(error) {
       res.send('Error en la búsqueda: ' + error);
     });
-
   }
 };
 

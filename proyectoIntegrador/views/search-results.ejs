@@ -21,7 +21,7 @@
       <% if (mensaje) { %>
         <p><%= mensaje %></p>
       <% } else { %>
-        <% for (var p = 0; p < data.productos.length; p++) { %>
+        <% for (let p = 0; p < data.productos.length; p++) { %>
           <div class="container products-wrapper">
             <div class="d-flex align-items-center">
               <h2 class="products-title"><%= data.productos[p].nombre %></h2>
@@ -39,14 +39,22 @@
                 </article>
                 <div class="col-12 col-lg-4">
                   <section class="comments">
-                    <% for (var c = 0; c < data.productos[p].comentarios.length; c++) { %>
-                      <div class="comentario">
-                        <img src="<%= data.productos[p].comentarios[c].imagenPerfil %>" alt="perfil" class="perfil-img">
-                        <div>
-                          <strong><%= data.productos[p].comentarios[c].nombreUsuario %></strong>
-                          <p><%= data.productos[p].comentarios[c].texto %></p>
-                        </div>
-                      </div>
+                    <% if (data.productos[p].comentarios) { %>
+                      <% if (data.productos[p].comentarios.length > 0) { %>
+                        <% for (let c = 0; c < data.productos[p].comentarios.length; c++) { %>
+                          <div class="comentario">
+                            <img src="<%= data.productos[p].comentarios[c].imagenPerfil %>" alt="perfil" class="perfil-img">
+                            <div>
+                              <strong><%= data.productos[p].comentarios[c].nombreUsuario %></strong>
+                              <p><%= data.productos[p].comentarios[c].texto %></p>
+                            </div>
+                          </div>
+                        <% } %>
+                      <% } else { %>
+                        <p>No hay comentarios para este producto.</p>
+                      <% } %>
+                    <% } else { %>
+                      <p>No hay comentarios para este producto.</p>
                     <% } %>
                   </section>
                   <form class="form" action="/product/detalle" method="get">
