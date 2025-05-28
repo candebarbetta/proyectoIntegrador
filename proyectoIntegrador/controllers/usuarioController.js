@@ -61,8 +61,6 @@ const usuarioController = {
                     fechaNacimiento: req.body.fechaNacimiento,
                     documento: documento,
                     fotoPerfil: " ",
-                    createdAt: new Date(),
-                    updatedAt: new Date()
                 })
                 .then(function (nuevoUsuario) {
                     req.session.userLogged = nuevoUsuario;
