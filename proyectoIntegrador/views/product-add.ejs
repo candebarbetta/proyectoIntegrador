@@ -5,7 +5,11 @@
 
 <body>
 	
-	<%- include('./partials/headerLogueado') %>
+	 	<% if (userLogged) { %>
+    	<%- include('./partials/headerLogueado', { data: { usuario: userLogged } }) %>
+  		<% } else { %>
+    	<%- include('./partials/header') %>
+  		<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->

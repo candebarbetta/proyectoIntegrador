@@ -4,7 +4,11 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partials/header') %>
+	<% if (userLogged) { %>
+    <%- include('./partials/headerLogueado', { data: { usuario: userLogged } }) %>
+  	<% } else { %>
+    <%- include('./partials/header') %>
+  	<% } %>
 	<!-- /Header -->
 
 	<!-- product detail -->
