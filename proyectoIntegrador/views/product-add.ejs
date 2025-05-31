@@ -20,15 +20,15 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form action="/product/detalle" method="get" class="formRegister">
+				<form action="/product/store" method="post" class="formRegister">
 					<label for="imagen">Imagen</label>
-					<input type="file" name="imagen" id="imagen">
+					<input type="text" name="imagen" id="imagen">
 
-					<label for="producto">Nombre del producto</label>
-					<input type="text" name="producto" id="producto">
+					<label for="producto">Nombre del producto: </label>
+					<input type="text" name="nombre" id="nombre">
 
 					<label for="descripcion">Descripción del producto</label>
-					<input type="text" name="descripcion" id="descripcion">
+					<input type="text" name="descripcion_corta" id="descripcion_corta">
 
 					<button type="submit" >Agregar gato</button>
 				</form>

@@ -2,6 +2,40 @@ const data = require("../database/models");
 const Op = data.Sequelize.Op;
 
 const productoController = {
+  create: function (req, res) {
+    if (req.session.userLogged === undefined) {
+      return res.redirect('/usuario/login');
+    }
+    if (req.session.userLogged === null) {
+      return res.redirect('/usuario/login');
+    }
+    res.render("product-add");
+  },
+
+  store: function (req, res) {
+    if (req.session.userLogged === undefined) {
+      return res.redirect('/usuario/login');
+    }
+    if (req.session.userLogged === null) {
+      return res.redirect('/usuario/login');
+    }
+
+    let nuevoProducto = {
+      nombre: req.body.nombre,
+      descripcion_corta: req.body.descripcion_corta,
+      imagen: req.body.imagen,
+      usuario_id: req.session.userLogged.id
+    };
+
+    data.Producto.create(nuevoProducto)
+      .then(function () {
+        res.redirect('/');
+      })
+      .catch(function (err) {
+        res.send("Error al crear el producto: " + err);
+      });
+  },
+
   agregar: function (req, res) {
     res.render("product-add");
   },
@@ -15,13 +49,13 @@ const productoController = {
         { association: 'comentarios' }
       ]
     })
-    .then(function(producto) {
-      if (!producto) {
+    .then(function (producto) {
+      if (producto === null) {
         return res.send('Producto no encontrado');
       }
       res.render("product", { data: { productos: [producto] } });
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error(error);
       res.send('Error al cargar el producto');
     });
@@ -29,7 +63,8 @@ const productoController = {
 
   buscar: function (req, res) {
     let query = req.query.search;
-    if (query == null) {
+
+    if (query === undefined) {
       query = "";
     }
 
@@ -43,8 +78,8 @@ const productoController = {
         { association: 'usuario' }
       ]
     })
-    .then(function(productos) {
-      var mensaje = null;
+    .then(function (productos) {
+      let mensaje = null;
       if (productos.length === 0) {
         mensaje = "No hay resultados para su criterio de búsqueda";
       }
@@ -57,7 +92,7 @@ const productoController = {
         mensaje: mensaje
       });
     })
-    .catch(function(error) {
+    .catch(function (error) {
       res.send('Error en la búsqueda: ' + error);
     });
   }
