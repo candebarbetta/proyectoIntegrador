@@ -83,31 +83,36 @@ const usuarioController = {
     },
 
     processLogin: function (req, res) {
-        db.Usuario.findOne({ where: { email: req.body.email } })
-            .then(function (user) {
-                if (user == null) {
-                    return res.render("login", { error: "El email no está registrado" });
-                }
+  db.Usuario.findOne({ where: { email: req.body.email } })
+    .then(function (user) {
+      if (user == null) {
+        return res.render("login", { error: "El email no está registrado" });
+      }
 
-                var passwordCorrecta = bcrypt.compareSync(req.body.password, user.contrasena);
+      var passwordCorrecta = bcrypt.compareSync(req.body.password, user.contrasena);
 
-                if (passwordCorrecta === false) {
-                    return res.render("login", { error: "Contraseña incorrecta" });
-                }
+      if (passwordCorrecta === false) {
+        return res.render("login", { error: "Contraseña incorrecta" });
+      }
 
-                req.session.userLogged = user;
+      
+      req.session.userLogged = user;
 
-                if (req.body.recordame != undefined) {
-                    res.cookie('userEmail', user.email, { maxAge: 1000 * 60 * 60 * 24 * 30 });
-                }
+      console.log("Sesión después de login: ", req.session);
 
-                return res.redirect('/');
-            })
-            .catch(function (error) {
-                console.log("ERROR EN LOGIN:", error);
-                return res.send("Ocurrió un error al intentar loguear.");
-            });
-    },
+      
+      if (req.body.recordame != undefined) {
+        res.cookie('userEmail', user.email, { maxAge: 1000 * 60 * 60 * 24 * 30 });
+      }
+
+      return res.redirect('/');  
+    })
+    .catch(function (error) {
+      console.log("ERROR EN LOGIN:", error);
+      return res.send("Ocurrió un error al intentar loguear.");
+    });
+},
+
 
     profile: function (req, res) {
          if (req.session.userLogged == undefined) {

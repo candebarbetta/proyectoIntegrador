@@ -3,11 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session');
+const session = require('express-session');
+
 
 var indexRouter = require('./routes/index');
 var usuarioRouter = require('./routes/usuario');
 const productRouter = require('./routes/product');
+
 
 
 const db = require("./database/models");
@@ -27,18 +29,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(session({
-  secret: "Nuestro mensaje secreto",
-  resave: false,
-  saveUninitialized: false
+  secret: "Nuestro mensaje secreto",  
+  resave: false,                     
+  saveUninitialized: true,           
+  cookie: { 
+    httpOnly: true,                  
+    secure: false,                   
+    maxAge: 1000 * 60 * 60 * 24 * 30 
+  }
 }));
 
-
 app.use(async function(req, res, next) {
-  if (req.cookies.userEmail && !req.session.userLogged) {
+  if (req.cookies.userEmail && !req.session.userLogged) {  
     try {
       let user = await db.Usuario.findOne({ where: { email: req.cookies.userEmail } });
       if (user) {
-        req.session.userLogged = user;
+        req.session.userLogged = user;  
       }
     } catch (error) {
       console.log("Error recuperando usuario desde cookie:", error);

@@ -40,11 +40,11 @@ CREATE TABLE comentarios (
 
 INSERT INTO usuarios(id, email, contrasena, fechaNacimiento, documento, fotoPerfil, createdAt, updatedAt, deletedAt)
 VALUES 
-(DEFAULT, "bernigamboa@gmail.com", "candelaria02", "2006-03-03", 467517124, "default-image.png", '2025-04-10 15:10:00', '2025-04-10 15:10:00', NULL),
-(DEFAULT, "bernixd@gmail.com", "berni123", "2006-03-03", 467517125, "default-image.png", '2025-04-10 15:10:00', '2025-04-10 15:10:00', NULL),
-(DEFAULT, "candelol@mail.com", "cande123", "2005-08-02", 467517126, "default-image.png", '2025-04-10 15:10:00', '2025-04-10 15:10:00', NULL),
-(DEFAULT, "maria@gmail.com", "maria123", "2000-04-03", 467517127, "default-image.png", '2025-04-10 15:10:00', '2025-04-10 15:10:00', NULL),
-(DEFAULT, "nachito@mail.com", "nacho123", "1999-05-11", 467517128, "default-image.png", '2025-04-10 15:10:00', '2025-04-10 15:10:00', NULL);
+(DEFAULT, "bernigamboa@gmail.com", "candelaria02", "2006-03-03", 467517124, "fotoPerfil.png", '2025-04-10 15:10:00', '2025-04-10 15:10:00', NULL),
+(DEFAULT, "bernixd@gmail.com", "berni123", "2006-03-03", 467517125, "fotoPerfil.png", '2025-04-10 15:10:00', '2025-04-10 15:10:00', NULL),
+(DEFAULT, "candelol@mail.com", "cande123", "2005-08-02", 467517126, "fotoPerfil.png", '2025-04-10 15:10:00', '2025-04-10 15:10:00', NULL),
+(DEFAULT, "maria@gmail.com", "maria123", "2000-04-03", 467517127, "fotoPerfil.png", '2025-04-10 15:10:00', '2025-04-10 15:10:00', NULL),
+(DEFAULT, "nachito@mail.com", "nacho123", "1999-05-11", 467517128, "fotoPerfil.png", '2025-04-10 15:10:00', '2025-04-10 15:10:00', NULL);
 
 INSERT INTO productos(id, imagen, nombre, descripcion, createdAt, updatedAt, deletedAt, usuario_id)
 VALUES
