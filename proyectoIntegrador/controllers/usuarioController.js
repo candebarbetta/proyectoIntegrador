@@ -75,46 +75,54 @@ const usuarioController = {
             });
     },
 
-    login: function (req, res) {
-        if (req.session.userLogged != undefined) {
-            return res.redirect('/');
-        }
-        res.render("login");
-    },
-
-    processLogin: function (req, res) {
-  db.Usuario.findOne({ where: { email: req.body.email } })
-    .then(function (user) {
-      if (user == null) {
-        return res.render("login", { error: "El email no está registrado" });
-      }
-
-      var passwordCorrecta = bcrypt.compareSync(req.body.password, user.contrasena);
-
-      if (passwordCorrecta === false) {
-        return res.render("login", { error: "Contraseña incorrecta" });
-      }
-
-      
-      req.session.userLogged = user;
-
-      console.log("Sesión después de login: ", req.session);
-
-      
-      if (req.body.recordame != undefined) {
-        res.cookie('userEmail', user.email, { maxAge: 1000 * 60 * 60 * 24 * 30 });
-      }
-
-      return res.redirect('/');  
-    })
-    .catch(function (error) {
-      console.log("ERROR EN LOGIN:", error);
-      return res.send("Ocurrió un error al intentar loguear.");
-    });
+   login: function (req, res) {
+    if (req.session.userLogged) {
+        return res.redirect("/usuario/profile");
+    }
+    return res.render("login");
 },
 
+processLogin: function (req, res) {
+    const email = req.body.email;
+    const password = req.body.password;
+    const remember = req.body.remember === "on";
 
-    profile: function (req, res) {
+    db.Usuario.findOne({ where: { email: email } })
+        .then(function (user) {
+            if (!user) {
+                return res.render("login", {
+                    error: "El email ingresado no está registrado."
+                });
+            }
+
+            const passwordOk = bcrypt.compareSync(password, user.password);
+            if (!passwordOk) {
+                return res.render("login", {
+                    error: "La contraseña ingresada es incorrecta."
+                });
+            }
+
+            req.session.userLogged = {
+                id: user.id,
+                email: user.email,
+                nombreUsuario: user.nombre,
+                foto: user.fotoPerfil
+            };
+
+            if (remember) {
+                res.cookie("userEmail", user.email, {
+                    maxAge: 1000 * 60 * 60 * 24 * 7
+                });
+            }
+
+            return res.redirect("/usuario/profile");
+        })
+        .catch(function (error) {
+            return res.send("Error al iniciar sesión: " + error);
+        });
+},
+
+profile: function (req, res) {
          if (req.session.userLogged == undefined) {
     return res.redirect('/usuario/login');
   }

@@ -111,7 +111,7 @@ const productController = {
       createdAt: new Date()
     })
     .then(function () {
-      res.redirect('/product/detalle/' + productoId);
+      res.redirect('/product/detalle/' + req.params.id);
     })
     .catch(function (error) {
       console.error(error);
