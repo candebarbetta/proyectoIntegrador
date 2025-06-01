@@ -22,7 +22,7 @@
           <!-- Comentarios -->
           <section class="comments">
             <% if (userLogged) { %>
-              <form action="/product/comentar/<%= data.productos[i].id %>" method="POST">
+              <form action="/productos/comentar/<%= data.productos[i].id %>" method="POST">
                 <input type="text" name="comentario" placeholder="Agregar comentario" required>
                 <button type="submit">AGREGAR COMENTARIO</button>
               </form>
@@ -38,7 +38,11 @@
                   <% if (data.productos[i].comentarios[c].usuario) { %>
                     <img src="/images/users/<%= data.productos[i].comentarios[c].usuario.fotoPerfil %>" alt="perfil" class="perfil-img">
                     <div>
-                      <strong><a href="/usuario/profile"><%= data.productos[i].comentarios[c].usuario.email %></a></strong>
+                      <strong>
+                        <a href="/usuario/profile/<%= data.productos[i].comentarios[c].usuario.id %>">
+                          <%= data.productos[i].comentarios[c].usuario.email %>
+                        </a>
+                      </strong>
                       <p><%= data.productos[i].comentarios[c].texto %></p>
                     
                     </div>

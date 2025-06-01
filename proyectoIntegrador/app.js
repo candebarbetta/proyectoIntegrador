@@ -62,7 +62,7 @@ app.use(function(req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/usuario', usuarioRouter);
-app.use('/product', productRouter);
+app.use('/productos', productRouter);
 
 
 app.use(function(req, res, next) {

@@ -8,5 +8,6 @@ router.get('/profile', usuarioController.profile);
 router.get("/login", usuarioController.login);
 router.post("/login", usuarioController.processLogin);
 router.get("/logout", usuarioController.logout);
+router.get('/profile/:id', usuarioController.profilePublic);
 
 module.exports = router;

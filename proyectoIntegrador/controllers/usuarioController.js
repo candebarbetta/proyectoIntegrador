@@ -145,6 +145,33 @@ profile: function (req, res) {
 
     },
 
+    profilePublic: function (req, res) {
+        const userId = req.params.id;
+    
+        db.Usuario.findByPk(userId, {
+            include: [
+                {
+                    association: 'productos',
+                    include: ['comentarios']
+                }
+            ]
+        })
+        .then(usuario => {
+    
+            if (!usuario) return res.send("Usuario no encontrado");
+    
+            const totalComentariosRecibidos = usuario.productos[0].comentarios.length
+            
+    
+            res.render("profile", {
+                usuario,
+                productos: usuario.productos,
+                totalComentariosRecibidos // 
+            });
+        })
+        .catch(error => res.send("Error al cargar el perfil público: " + error));
+    },
+
     logout: function(req, res) {
         res.clearCookie('userEmail');
         req.session.destroy(function () {
