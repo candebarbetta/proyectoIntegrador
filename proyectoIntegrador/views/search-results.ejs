@@ -19,7 +19,7 @@
       </div>
 
       <% if (mensaje) { %>
-        <p><%= mensaje %></p>
+        <p class="mensaje-sin-resultados"><%= mensaje %></p>
       <% } else { %>
         <% for (let p = 0; p < data.productos.length; p++) { %>
           <div class="container products-wrapper">
@@ -27,8 +27,6 @@
               <h2 class="products-title"><%= data.productos[p].nombre %></h2>
               <p class="product-detail-description">
                 <a href="/productos/<%= data.productos[p].id %>">Ver detalle</a>
-                |
-                <a href="/productos/productAdd">Editar</a>
               </p>
             </div>
             <div class="product-detail">
@@ -36,33 +34,8 @@
                 <article class="col-12 col-lg-8 product-detail-info">
                   <img src="/images/products/<%= data.productos[p].imagen %>" alt="Producto" class="product-detail-img">
                   <p class="product-detail-description"><%= data.productos[p].descripcion %></p>
+                  <p class="product-detail-autor">Publicado por: <%= data.productos[p].usuario.email %></p>
                 </article>
-                <div class="col-12 col-lg-4">
-                  <section class="comments">
-                    <% if (data.productos[p].comentarios) { %>
-                      <% if (data.productos[p].comentarios.length > 0) { %>
-                        <% for (let c = 0; c < data.productos[p].comentarios.length; c++) { %>
-                          <div class="comentario">
-                            <img src="<%= data.productos[p].comentarios[c].imagenPerfil %>" alt="perfil" class="perfil-img">
-                            <div>
-                              <strong><%= data.productos[p].comentarios[c].nombreUsuario %></strong>
-                              <p><%= data.productos[p].comentarios[c].texto %></p>
-                            </div>
-                          </div>
-                        <% } %>
-                      <% } else { %>
-                        <p>No hay comentarios para este producto.</p>
-                      <% } %>
-                    <% } else { %>
-                      <p>No hay comentarios para este producto.</p>
-                    <% } %>
-                  </section>
-                  <form class="form" action="/productos/" method="get">
-                    <input class="form-input" type="text" value="" placeholder="Agregar comentario">
-                    <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-                  </form>
-                  <hr>
-                </div>
               </div>
             </div>
           </div>
@@ -76,5 +49,4 @@
   <%- include('./partials/footer') %>
   <!-- /footer -->
 </body>
-
 </html>

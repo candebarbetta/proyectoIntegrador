@@ -75,6 +75,12 @@ const productController = {
     include: ['usuario', 'comentarios'] 
   })
   .then(function (productos) {
+    console.log("🧪 Primer producto:");
+if (productos.length > 0) {
+  console.log(JSON.stringify(productos[0].toJSON(), null, 2));
+} else {
+  console.log("No se encontraron productos.");
+}
     let mensaje = null;
     if (productos.length === 0) {
       mensaje = "No hay resultados para su criterio de búsqueda";
