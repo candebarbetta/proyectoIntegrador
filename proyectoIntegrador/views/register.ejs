@@ -22,27 +22,28 @@
 			<h2 class="col-12"> 
 				<h1>Registro</h1>
 
-				<form action="/usuario/login" method="post" class="formRegister">
-				  <label for="email">Email:</label>
-				  <input type="email" id="email" name="email">
-			  
-				  <label for="usuario">Usuario:</label>
-				  <input type="text" id="usuario" name="usuario" >
-			  
-				  <label for="contrasennia">Contraseña:</label>
-				  <input type="password" id="contrasennia" name="password" >
-			  
-				  <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-				  <input type="date" id="fechaNacimiento" name="fechaNacimiento" >
-			  
-				  <label for="documento">Número de documento:</label>
-				  <input type="number" id="documento" name="documento" >
-			  
-				  <label for="foto">Foto de perfil :</label>
-				  <input type="text" id="foto" name="foto">
-			  
-				  <button type="submit">Registrarse</button>
-				</form>
+				<form action="/usuario/register" method="post" class="formRegister">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="password">Contraseña:</label>
+  <input type="password" id="password" name="password" required>
+
+  <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+  <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+
+  <label for="documento">Número de documento:</label>
+  <input type="number" id="documento" name="documento">
+
+  <label for="foto">Foto de perfil:</label>
+  <input type="text" id="foto" name="foto">
+
+  <button type="submit">Registrarse</button>
+</form>
+
 			</h2>
 
 

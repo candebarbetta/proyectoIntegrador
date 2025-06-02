@@ -11,11 +11,11 @@
   <% } %>
   <!-- /Header -->
 
-  <!-- Datos del usuario -->
+
   <section class="info-usuario container products-wrapper">
     <div class="row">
       <div class="img-container offset-3 col-2">
-        <img src="<%= usuario.fotoPerfil %>" alt="foto de perfil" class="foto-perfil">
+        <img src="/images/users/<%= usuario.fotoPerfil %>" alt="foto de perfil" class="foto-perfil">
       </div>
       <div class="data-container col-6">
         <div class="d-flex align-items-center">
@@ -36,26 +36,26 @@
       </div>
     </div>
   </section>
-  <!-- /Datos del usuario -->
 
-  <!-- Mis productos -->
+
+ 
   <div class="container products-wrapper">
     <div class="row">
       <div class="col-12">
         <h2 class="products-title">Mis productos</h2>
       </div>
-      <!-- Mostrar productos cargados -->
+  
       <% for (let i = 0; i < productos.length; i++) { %>
         <div class="col-12 col-sm-6 col-lg-3">
           <section class="product-box">
             <a href="/productos/<%= productos[i].id %>">
               <figure class="product-box_image">
-                <img src="<%= productos[i].imagen %>" alt="<%= productos[i].nombre %>">
+                <img src="/images/products/<%= productos[i].imagen %>" alt="<%= productos[i].nombre %>">
               </figure>
               <article class="product-box_data">
                 <h2><%= productos[i].nombre %></h2>
                 <p><%= productos[i].descripcion %></p>
-                <p>Comentarios: 2</p> <!-- Podés reemplazar esto luego con data real -->
+                <p>Comentarios: 2</p> 
               </article>
             </a>
           </section>
@@ -63,7 +63,7 @@
       <% } %>
     </div>
   </div>
-  <!-- /Mis productos -->
+
 
   <!-- footer -->
   <%- include('./partials/footer') %>

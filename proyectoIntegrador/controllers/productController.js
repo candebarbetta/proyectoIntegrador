@@ -36,10 +36,6 @@ const productController = {
       });
   },
 
-  agregar: function (req, res) {
-    res.render("product-add");
-  },
-
   detalle: function (req, res) {
     let id = req.params.id;
 
