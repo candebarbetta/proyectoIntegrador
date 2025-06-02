@@ -98,20 +98,21 @@ processLogin: function (req, res) {
     const remember = req.body.remember === "on";
 
     db.Usuario.findOne({ where: { email: email } })
-        .then(function (user) {
-            console.log("Usuario encontrado:", user ? user.email : null);
+        .then(function (usuario) {
 
-            if (!user) {
+            if (usuario == null) {
                 console.log("Usuario no encontrado");
                 return res.render("login", {
                     error: "El email ingresado no está registrado."
                 });
             }
 
-            const passwordOk = bcrypt.compareSync(password, user.contrasena);
+            console.log("Usuario encontrado:", usuario.email);
+
+            const passwordOk = bcrypt.compareSync(password, usuario.contrasena);
             console.log("Contraseña OK:", passwordOk);
 
-            if (!passwordOk) {
+            if (passwordOk == null) {
                 console.log("Contraseña incorrecta");
                 return res.render("login", {
                     error: "La contraseña ingresada es incorrecta."
@@ -119,10 +120,10 @@ processLogin: function (req, res) {
             }
 
             req.session.userLogged = {
-                id: user.id,
-                email: user.email,
-                nombreUsuario: user.nombre,
-                foto: user.fotoPerfil
+                id: usuario.id,
+                email: usuario.email,
+                nombreUsuario: usuario.nombre,
+                foto: usuario.fotoPerfil
             };
 
             console.log("Usuario logueado, redirigiendo a /usuario/profile...");
@@ -172,20 +173,20 @@ profile: function (req, res) {
                 }
             ]
         })
-        .then(usuario => {
-    
-            if (!usuario) return res.send("Usuario no encontrado");
-    
-            const totalComentariosRecibidos = usuario.productos[0].comentarios.length
-            
-    
+        .then(function (usuario) {
+            if (usuario == null) return res.send("Usuario no encontrado");
+        
+            const totalComentariosRecibidos = usuario.productos[0].comentarios.length;
+        
             res.render("profile", {
-                usuario,
+                usuario: usuario,
                 productos: usuario.productos,
-                totalComentariosRecibidos 
+                totalComentariosRecibidos: totalComentariosRecibidos
             });
         })
-        .catch(error => res.send("Error al cargar el perfil público: " + error));
+        .catch(function (error) {
+            res.send("Error al cargar el perfil público: " + error);
+        });
     },
 
     logout: function(req, res) {

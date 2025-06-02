@@ -75,7 +75,7 @@ const productController = {
     include: ['usuario', 'comentarios'] 
   })
   .then(function (productos) {
-    console.log("🧪 Primer producto:");
+    console.log("Primer producto:");
 if (productos.length > 0) {
   console.log(JSON.stringify(productos[0].toJSON(), null, 2));
 } else {
@@ -110,7 +110,7 @@ if (productos.length > 0) {
       texto: req.body.comentario,
       producto_id: req.params.id,
       usuario_id: req.session.userLogged.id,
-      createdAt: new Date()
+      
     })
     .then(function () {
       res.redirect('/productos/' + req.params.id);
